@@ -3,7 +3,6 @@ package com.dessert.model;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import org.springframework.util.ResourceUtils;
 import com.dessert.DetailsInfo;
@@ -13,6 +12,7 @@ public class DessertInfo extends DetailsInfo {
 	BufferedImage img;
 	
 	Boolean isLiked;	// 찜
+	int likedCnt;		// 좋아요 수
 
 	// 하루 권장량에 따른 영양분 비율
 	float perNatrium; 	// 나트륨
@@ -64,6 +64,14 @@ public class DessertInfo extends DetailsInfo {
 
 	public void setIsLiked(Boolean isLiked) {
 		this.isLiked = isLiked;
+	}
+	
+	public int getLikedCnt() {
+		return likedCnt;
+	}
+
+	public void setLikedCnt(int likedCnt) {
+		this.likedCnt = likedCnt;
 	}
 
 	public float getPerNatrium() {

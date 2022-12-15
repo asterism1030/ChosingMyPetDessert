@@ -1,8 +1,12 @@
 package com.dessert;
 
+enum DessertType { BREAD, SANDWICH, CAKE, ICECREAM, PUDDING, COOKIE, SMOOTHIE, COFFEE, TEA }
+
 public abstract class DetailsInfo {
 	String name;
 	int price;
+	
+	DessertType dessertType;
 	
 	float calorie;
 	
