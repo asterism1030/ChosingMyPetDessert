@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Main Page</title>
+<title>Main - Page</title>
 </head>
 <body>
 	
