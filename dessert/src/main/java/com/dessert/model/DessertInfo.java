@@ -15,19 +15,19 @@ public class DessertInfo extends DetailsInfo {
 	Boolean isLiked;	// 찜
 
 	// 하루 권장량에 따른 영양분 비율
-	float perNatrium; // 나트륨
-	float perSugar; // 당
-	float perCarb; // 탄수화물
-	float perProtein; // 단백질
-	float perFat; // 지방
+	float perNatrium; 	// 나트륨
+	float perSugar; 	// 당
+	float perCarb; 		// 탄수화물
+	float perProtein; 	// 단백질
+	float perFat; 		// 지방
 	
 	public DessertInfo(BufferedImage img, Boolean isLiked, RecommandNutritions nutritions) {
 		super();
 		
 		if(img == null) {
-//			File file = ResourceUtils.getFile("/dessert/src/main/webapp/resources/Image/dounut.jpg");
+			// default image 가져옴
 			try {
-				
+//				File file = ResourceUtils.getFile("/dessert/src/main/webapp/resources/Image/dounut.jpg");
 				this.img = ImageIO.read(ResourceUtils.getFile("/dessert/src/main/webapp/resources/Image/dounut.jpg"));
 				
 			} catch (FileNotFoundException e) {
