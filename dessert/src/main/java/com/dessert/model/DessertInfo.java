@@ -5,24 +5,27 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import org.springframework.util.ResourceUtils;
-import com.dessert.DetailsInfo;
-import com.dessert.RecommandNutritions;
 
 public class DessertInfo extends DetailsInfo {
+	int id;
+	
 	BufferedImage img;
 	
-	Boolean isLiked;	// 찜
-	int likedCnt;		// 좋아요 수
+	Boolean isLiked;	// 좋아요
+	int likedCnt;	// 전체 좋아요 수 합
 
 	// 하루 권장량에 따른 영양분 비율
+	float perCalorie;	// 칼로리
 	float perNatrium; 	// 나트륨
 	float perSugar; 	// 당
 	float perCarb; 		// 탄수화물
 	float perProtein; 	// 단백질
 	float perFat; 		// 지방
 	
-	public DessertInfo(BufferedImage img, Boolean isLiked, RecommandNutritions nutritions) {
+	public DessertInfo(int id, BufferedImage img, Boolean isLiked, RecommandNutritions nutritions) {
 		super();
+		
+		this.id = id;
 		
 		if(img == null) {
 			// default image 가져옴
@@ -42,18 +45,29 @@ public class DessertInfo extends DetailsInfo {
 		
 		this.isLiked = isLiked;
 		
+		perCalorie = this.getCalorie() / nutritions.getCalorie() * 100;	// 칼로리
 		perNatrium = this.getNatrium() / nutritions.getNatrium() * 100; // 나트륨
 		perSugar = this.getSugar() / nutritions.getSugar() * 100; 		// 당
 		perCarb = this.getCarb() / nutritions.getCarb() * 100; 			// 탄수화물
 		perProtein = this.getProtein() / nutritions.getProtein() * 100; // 단백질
 		perFat = this.getFat() / nutritions.getFat() * 100; 			// 지방
 	}
+	
+	// method
 
 	// getter / setter
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public BufferedImage getImg() {
 		return img;
 	}
-
+	
 	public void setImg(BufferedImage img) {
 		this.img = img;
 	}
@@ -72,6 +86,14 @@ public class DessertInfo extends DetailsInfo {
 
 	public void setLikedCnt(int likedCnt) {
 		this.likedCnt = likedCnt;
+	}
+	
+	public float getPerCalorie() {
+		return perCalorie;
+	}
+
+	public void setPerCalorie(float perCalorie) {
+		this.perCalorie = perCalorie;
 	}
 
 	public float getPerNatrium() {

@@ -1,6 +1,6 @@
-package com.dessert;
+package com.dessert.model;
 
-enum DessertType { BREAD, SANDWICH, CAKE, ICECREAM, PUDDING, COOKIE, SMOOTHIE, COFFEE, TEA }
+import com.dessert.constval.EnumClass.DessertType;
 
 public abstract class DetailsInfo {
 	String name;
