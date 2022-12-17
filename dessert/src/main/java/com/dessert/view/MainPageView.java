@@ -11,6 +11,12 @@ import com.dessert.model.UserInfo;
 public class MainPageView {
 	// SingleTone
 	private static MainPageView inst = null;
+	public static MainPageView getInst() {
+		if (inst == null) {
+			inst = new MainPageView();
+		}
+		return inst;
+	}
 	
 	//// body
 	// left
@@ -22,21 +28,13 @@ public class MainPageView {
 	FilterInfo filterInfo = new FilterInfo();
 	
 	// center
-	List<DessertInfo> desserts;	// 디저트 목록 (필터링이 적용되어 화면상에선 걸러져서 보여짐)
+	List<DessertInfo> desserts;			// 디저트 목록 (필터링이 적용되어 화면상에선 걸러져서 보여짐)
 	
 	// right
 	// 장바구니 목록
-	List<DessertInfo> selectedDesserts;
-	DetailsInfo totalInfo;		// 선택한 음식들의 총 합 계산 - 가격, 칼로리, 나트륨 등등..
-	DetailsInfo totalPerInfo;	// 하루 권장량에 따른 퍼센트 총 합
+	//List<DessertInfo> selectedDesserts;// 장바구니 - user 의 List 에서 얻어옴
+	DessertInfo totalInfo;				 // 선택한 음식들의 총 합 계산 - 가격, 칼로리, 나트륨,.. , 총 퍼센트 총합
 	
-	// method
-	public static MainPageView getInst() {
-		if (inst == null) {
-			inst = new MainPageView();
-		}
-		return inst;
-	}
 	
 	// getter setter
 	public UserInfo getUser() {
@@ -47,29 +45,18 @@ public class MainPageView {
 		this.user = user;
 	}
 	
-	public void AddDesserts(DessertInfo dessert) {
+	public void addDesserts(DessertInfo dessert) {
 		desserts.add(dessert);
 	}
 	
-	public void AddSelectedDesserts(DessertInfo dessert) {
-		selectedDesserts.add(dessert);
-	}
-
-	public DetailsInfo getTotalInfo() {
+	public DessertInfo getTotalInfo() {
 		return totalInfo;
 	}
 
-	public void setTotalInfo(DetailsInfo totalInfo) {
+	public void setTotalInfo(DessertInfo totalInfo) {
 		this.totalInfo = totalInfo;
 	}
 
-	public DetailsInfo getTotalPerInfo() {
-		return totalPerInfo;
-	}
-
-	public void setTotalPerInfo(DetailsInfo totalPerInfo) {
-		this.totalPerInfo = totalPerInfo;
-	}
 	
 	
 	

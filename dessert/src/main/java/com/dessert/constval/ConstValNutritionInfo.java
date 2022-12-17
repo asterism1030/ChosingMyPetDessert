@@ -28,6 +28,16 @@ public class ConstValNutritionInfo {
 	
 	// 변수들
 	RecommandNutritions[] nutritionInfo = new RecommandNutritions[4];
+	public static int maxPrice = 50000; 		// 50000 ~
+
+	public static float maxCalorie = 2000; 	// 2000 ~
+
+	public static float maxNatrium = 10.0f; 	// 나트륨
+	public static float maxSugar = 50; 		// 당
+	public static float maxCarb = 500; 		// 탄수화물
+	public static float maxProtein = 500; 	// 단백질
+	public static float maxFat = 500; 		// 지방
+	public static float maxTransFat = 100; 	// 트랜스 지방
 	
 	// method
 	public RecommandNutritions getPersonRecommandNutritionInfo(PersonType personType) {

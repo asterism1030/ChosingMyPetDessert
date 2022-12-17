@@ -1,9 +1,11 @@
 package com.dessert.constval;
 
 public class EnumClass {
-	public enum DessertType { BREAD, SANDWICH, CAKE, ICECREAM, PUDDING, COOKIE, SMOOTHIE, COFFEE, TEA }
+	public static enum DessertType { BREAD, SANDWICH, CAKE, ICECREAM, PUDDING, COOKIE, SMOOTHIE, COFFEE, TEA }
 	
-	public enum PersonType { 
+	public static enum AnimalType { DOG, CAT, BIRD }
+	
+	public static enum PersonType { 
 		ADULTWOMAN,
 		YOUNGWOMAN,
 		ADULTMAN,

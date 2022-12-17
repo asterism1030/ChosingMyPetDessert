@@ -17,6 +17,8 @@ public abstract class DetailsInfo {
 	float fat;		// 지방
 	float transFat;	// 트랜스 지방
 	
+	// method
+	
 	
 	// getter / setter
 	public String getName() {
@@ -29,49 +31,73 @@ public abstract class DetailsInfo {
 		return price;
 	}
 	public void setPrice(int price) {
-		this.price = price;
+		if(this.price >= 0)
+			this.price = price;
+		else
+			this.price = 0;
 	}
 	public float getCalorie() {
 		return calorie;
 	}
 	public void setCalorie(float calorie) {
-		this.calorie = calorie;
+		if(this.calorie >= 0)
+			this.calorie = calorie;
+		else
+			this.calorie = 0;
 	}
 	public float getNatrium() {
 		return natrium;
 	}
 	public void setNatrium(float natrium) {
-		this.natrium = natrium;
+		if(this.natrium >= 0)
+			this.natrium = natrium;
+		else
+			this.natrium = 0;
 	}
 	public float getSugar() {
 		return sugar;
 	}
 	public void setSugar(float sugar) {
-		this.sugar = sugar;
+		if(this.sugar >= 0)
+			this.sugar = sugar;
+		else
+			this.sugar = 0;
 	}
 	public float getCarb() {
 		return carb;
 	}
 	public void setCarb(float carb) {
-		this.carb = carb;
+		if(this.carb >= 0)
+			this.carb = carb;
+		else
+			this.carb = 0;
 	}
 	public float getProtein() {
 		return protein;
 	}
 	public void setProtein(float protein) {
-		this.protein = protein;
+		if(this.protein >= 0)
+			this.protein = protein;
+		else
+			this.protein = 0;
 	}
 	public float getFat() {
 		return fat;
 	}
 	public void setFat(float fat) {
-		this.fat = fat;
+		if(this.fat >= 0)
+			this.fat = fat;
+		else
+			this.fat = 0;
 	}
 	public float getTransFat() {
 		return transFat;
 	}
 	public void setTransFat(float transFat) {
-		this.transFat = transFat;
+		if(this.transFat >= 0)
+			this.transFat = transFat;
+		else
+			this.transFat = 0;
 	}
 	
 	
