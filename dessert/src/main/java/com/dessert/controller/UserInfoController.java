@@ -1,10 +1,16 @@
 package com.dessert.controller;
 
 import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.dessert.constval.EnumClass.PersonType;
 import com.dessert.model.DessertInfo;
 import com.dessert.model.UserInfo;
 
+@Controller
 public class UserInfoController {
 	// SingleTone
 	private static UserInfoController inst = null;
@@ -44,20 +50,32 @@ public class UserInfoController {
 		return isSuccess;
 	}
 
-	public UserInfo LoginClicked(String id, String pwd) {
+	@GetMapping("/login")
+    public String LoginClicked(@RequestParam("id") String user_id, @RequestParam("pwd") String user_pwd) {
+        System.out.println("\n\n\n\n");
+        System.out.println("ParamData num = " + user_id);
+        System.out.println("ParamData message = " + user_pwd);
+        
+        /*
+        // 로그인 성공 시
+     	// get val
+     	String name = "";
+     	Date birth = new Date();
+     	float weight = 0.0f;
+     	PersonType personType = PersonType.ADULTWOMAN;
+     	// set val
+     	UserInfo user = new UserInfo(name, birth, weight, id, personType);
+     	*/
+        
+        return "GET 보내기 성공!";
+    }
+	
+	public UserInfo LoginClicked_tmp(String id, String pwd) {
 		// TODO ) 서버와의 동작 처리
 
-		// 로그인 성공 시
-		// get val
-		String name = "";
-		Date birth = new Date();
-		float weight = 0.0f;
-		PersonType personType = PersonType.ADULTWOMAN;
+		
 
-		// set val
-		UserInfo user = new UserInfo(name, birth, weight, id, personType);
-
-		return user;
+		return null;
 	}
 
 	public boolean LogoutClicked(String id) {
