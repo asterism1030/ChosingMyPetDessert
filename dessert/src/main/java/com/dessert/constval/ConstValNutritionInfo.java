@@ -27,6 +27,7 @@ public class ConstValNutritionInfo {
 
 	
 	// 변수들
+	// TODO final 변경
 	RecommandNutritions[] nutritionInfo = new RecommandNutritions[4];
 	public static int maxPrice = 50000; 		// 50000 ~
 
