@@ -2,6 +2,9 @@ package com.dessert.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.collections.map.HashedMap;
 
 import com.dessert.constval.EnumClass.PersonType;
 
@@ -15,7 +18,7 @@ public class UserInfo {
 	
 	PersonType personType;				// 성별 나이 내부에서 계산 안하고 사용자가 택하도록 함 - 부모님 계정 같은
 	
-	List<DessertInfo> selectedDesserts;	// 장바구니
+	Map<DessertInfo, Integer> selectedDesserts = new HashedMap();	// 장바구니
 
 	public UserInfo(String name, Date birth, float weight, String id, PersonType personType) {
 		super();
@@ -67,20 +70,31 @@ public class UserInfo {
 		this.personType = personType;
 	}
 
-	public List<DessertInfo> getSelectedDesserts() {
+	public Map<DessertInfo, Integer> getSelectedDesserts() {
 		return selectedDesserts;
 	}
 
-	public void setSelectedDesserts(List<DessertInfo> selectedDesserts) {
+	public void setSelectedDesserts(Map<DessertInfo, Integer> selectedDesserts) {
 		this.selectedDesserts = selectedDesserts;
 	}
 	
 	public void addSelectedDesserts(DessertInfo dessert) {
-		this.selectedDesserts.add(dessert);
+		if(this.selectedDesserts.containsKey(dessert) == false) {
+			this.selectedDesserts.put(dessert, 1);
+		}
+		else {
+			int cnt = this.selectedDesserts.get(dessert);
+			this.selectedDesserts.put(dessert, cnt + 1);
+		}
 	}
 	
 	public void subSelectedDesserts(DessertInfo dessert) {
-		this.selectedDesserts.remove(dessert);
+		if(this.selectedDesserts.containsKey(dessert) == false) {
+			return;
+		}
+
+		int cnt = this.selectedDesserts.get(dessert);
+		this.selectedDesserts.put(dessert, cnt - 1);
 	}
 	
 	
